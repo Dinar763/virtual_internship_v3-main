@@ -11,20 +11,36 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TravelCalculatePremiumServiceImplTest {
 
     private TravelCalculatePremiumServiceImpl service = new TravelCalculatePremiumServiceImpl();
+
     @Test
-    public void checkAnswers() {
+    public void checkAnswerFieldsPersonFirstName() {
         TravelCalculatePremiumRequest request = new TravelCalculatePremiumRequest();
         request.setPersonFirstName("Dinar");
-        request.setPersonLastName("Gizzyatov");
-        request.setAgreementDateFrom(new Date());
-        request.setAgreementDateTo(new Date());
-
         TravelCalculatePremiumResponse response = service.calculatePremium(request);
         assertEquals(response.getPersonFirstName(), request.getPersonFirstName());
-        assertEquals(response.getPersonLastName(), request.getPersonLastName());
-        assertEquals(response.getAgreementDateFrom(), request.getAgreementDateFrom());
-        assertEquals(response.getAgreementDateTo(), request.getAgreementDateTo());
-
     }
 
+    @Test
+    public void checkAnswerFieldsPersonLastName() {
+        TravelCalculatePremiumRequest request = new TravelCalculatePremiumRequest();
+        request.setPersonLastName("Gizzyatov");
+        TravelCalculatePremiumResponse response = service.calculatePremium(request);
+        assertEquals(response.getPersonLastName(), request.getPersonLastName());
+    }
+
+    @Test
+    public void checkAnswerFieldsAgreementDateFrom() {
+        TravelCalculatePremiumRequest request = new TravelCalculatePremiumRequest();
+        request.setAgreementDateFrom(new Date());
+        TravelCalculatePremiumResponse response = service.calculatePremium(request);
+        assertEquals(response.getAgreementDateFrom(), request.getAgreementDateFrom());
+    }
+
+    @Test
+    public void checkAnswerFieldsAgreementDateTo() {
+        TravelCalculatePremiumRequest request = new TravelCalculatePremiumRequest();
+        request.setAgreementDateTo(new Date());
+        TravelCalculatePremiumResponse response = service.calculatePremium(request);
+        assertEquals(response.getAgreementDateTo(), request.getAgreementDateTo());
+    }
 }
