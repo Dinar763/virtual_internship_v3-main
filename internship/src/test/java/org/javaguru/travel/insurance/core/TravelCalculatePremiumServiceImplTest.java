@@ -4,6 +4,7 @@ import org.javaguru.travel.insurance.rest.TravelCalculatePremiumRequest;
 import org.javaguru.travel.insurance.rest.TravelCalculatePremiumResponse;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -42,5 +43,13 @@ class TravelCalculatePremiumServiceImplTest {
         request.setAgreementDateTo(new Date());
         TravelCalculatePremiumResponse response = service.calculatePremium(request);
         assertEquals(response.getAgreementDateTo(), request.getAgreementDateTo());
+    }
+
+    @Test
+    public void checkAnswerFieldsAgreementPrice() {
+        TravelCalculatePremiumRequest request = new TravelCalculatePremiumRequest();
+        request.setAgreementPrice(new BigDecimal("12345.67"));
+        TravelCalculatePremiumResponse response = service.calculatePremium(request);
+        assertEquals(response.getAgreementPrice(), request.getAgreementPrice());
     }
 }

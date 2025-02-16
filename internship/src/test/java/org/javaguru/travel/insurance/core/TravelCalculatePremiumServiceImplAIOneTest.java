@@ -3,6 +3,8 @@ package org.javaguru.travel.insurance.core;
 import org.javaguru.travel.insurance.rest.TravelCalculatePremiumRequest;
 import org.javaguru.travel.insurance.rest.TravelCalculatePremiumResponse;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 import java.util.Date;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +16,8 @@ public class TravelCalculatePremiumServiceImplAIOneTest {
             "John",
             "Doe",
             new Date(),
-            new Date()
+            new Date(),
+            new BigDecimal("12345.67")
         );
 
         TravelCalculatePremiumService service = new TravelCalculatePremiumServiceImpl();
@@ -28,5 +31,6 @@ public class TravelCalculatePremiumServiceImplAIOneTest {
         assertThat(response.getPersonLastName()).isEqualTo("Doe");
         assertThat(response.getAgreementDateFrom()).isEqualTo(request.getAgreementDateFrom());
         assertThat(response.getAgreementDateTo()).isEqualTo(request.getAgreementDateTo());
+        assertThat(response.getAgreementPrice()).isEqualTo(request.getAgreementPrice());
     }
 }

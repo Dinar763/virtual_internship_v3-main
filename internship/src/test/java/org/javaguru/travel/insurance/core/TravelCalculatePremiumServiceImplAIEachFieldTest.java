@@ -15,6 +15,7 @@ public class TravelCalculatePremiumServiceImplAIEachFieldTest {
             "John",
             null,
             null,
+            null,
             null
         );
 
@@ -34,6 +35,7 @@ public class TravelCalculatePremiumServiceImplAIEachFieldTest {
         TravelCalculatePremiumRequest request = new TravelCalculatePremiumRequest(
             null,
             "Doe",
+            null,
             null,
             null
         );
@@ -56,6 +58,7 @@ public class TravelCalculatePremiumServiceImplAIEachFieldTest {
             null,
             null,
             dateFrom,
+            null,
             null
         );
 
@@ -77,7 +80,8 @@ public class TravelCalculatePremiumServiceImplAIEachFieldTest {
             null,
             null,
             null,
-            dateTo
+            dateTo,
+            null
         );
 
         TravelCalculatePremiumService service = new TravelCalculatePremiumServiceImpl();
